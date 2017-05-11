@@ -2,12 +2,19 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+
+//********************INFO***********************
+//CALL WITH URL http://twistedpedia.co.nf/public/index.php/api/joke/58
+//
+//********************************************************************
+
+
 $app = new \Slim\App;
 
 //Get All jokes (doesn't work yet) 
 
 $app->get('/api/jokes', function(Request $request, Response $response){
-    $sql = "SELECT * FROM new_jokes";
+    $sql = "SELECT * FROM joke ORDER BY joke_index ASC";
 
         try{
             // Get DB object 
