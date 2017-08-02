@@ -35,31 +35,31 @@ $app->get('/api/customers', function(Request $request, Response $response){
     	}
 });
 
-//Get A SINGLE CUSTOMER 
-//****All customers terms changed to customer, except in SQL statement
-$app->get('/api/customer/{id}', function(Request $request, Response $response){
-	$id = $request->getAttribute('id');
+    //Get A SINGLE CUSTOMER 
+    //****All customers terms changed to customer, except in SQL statement
+    $app->get('/api/customer/{id}', function(Request $request, Response $response){
+    	$id = $request->getAttribute('id');
 
-	$sql = "SELECT * FROM customers WHERE id = $id"; //$id comes from the URL 
+    	$sql = "SELECT * FROM customers WHERE id = $id"; //$id comes from the URL 
 
-		try{
-			// Get DB object 
-			$db = new db();
-			// connect 
-			$db = $db->connect(); 
-
-
-			$stmt = $db->query($sql);
-			$customer = $stmt->fetchAll(PDO::FETCH_OBJ); // changed to singular
-			$db = null;
-			echo json_encode($customer);  // changed to singular
+    		try{
+    			// Get DB object 
+    			$db = new db();
+    			// connect 
+    			$db = $db->connect(); 
 
 
-		} catch(PDOException $e){
-			//e for errors exception handling
-       		 echo '{"error": {"text": '.$e->getMessage().'}';
-    	}
-});
+    			$stmt = $db->query($sql);
+    			$customer = $stmt->fetchAll(PDO::FETCH_OBJ); // changed to singular
+    			$db = null;
+    			echo json_encode($customer);  // changed to singular
+
+
+    		} catch(PDOException $e){
+    			//e for errors exception handling
+           		 echo '{"error": {"text": '.$e->getMessage().'}';
+        	}
+    });
 
 
 // Add Customer
