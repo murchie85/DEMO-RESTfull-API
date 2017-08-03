@@ -1,10 +1,10 @@
 <?php
     class db{
         // Properties
-        private $dbhost = 'localhost';
-        private $dbuser = 'root';
-        private $dbpass = '';
-        private $dbname = 'slimapp';
+        private $dbhost = 'fdb3.biz.nf';
+        private $dbuser = '2091203_twist';
+        private $dbpass = 'monday85';
+        private $dbname = '2091203_twist';
         // Connect
         // create MYSQL connect string 
         public function connect(){
@@ -14,3 +14,5 @@
             return $dbConnection;
         }
     }
+
+
